@@ -81,7 +81,7 @@ const Form: React.FC<IFormProps> = ({ children, handleSubmit }) => {
   //   setInputs(currentInputs);
   // }
 
-  const getValue = (name: string) => { console.log(name); return inputs[name] ? inputs[name].getValue() : null };
+  const getValue = (name: string) => inputs[name] ? inputs[name].getValue() : null;
   const getIsDirty = (name: string) => inputs[name] ? inputs[name].getIsDirty() : false;
   const getIsTouched = (name: string) => inputs[name] ? inputs[name].getIsTouched() : false;
   const getIsValid = (name: string) => inputs[name] ? inputs[name].getIsValid() : false;

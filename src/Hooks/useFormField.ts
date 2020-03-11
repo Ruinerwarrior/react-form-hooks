@@ -21,8 +21,7 @@ function useFormField(
   const [isDirty, setIsDirty] = useState(false);
   const [isTouched, setIsTouched] = useState(false);
   const [isValid, setIsValid] = useState(false);
-  console.log("input", name);
-
+  
   // events
   const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let value = e.target.value;
@@ -53,7 +52,6 @@ function useFormField(
   const onFocus = handleFocus || handleFieldFocus;
 
   useEffect(() => {
-    console.log("input effect");
     // getters
     const getValue = () => value;
     const getIsDirty = () => isDirty;
