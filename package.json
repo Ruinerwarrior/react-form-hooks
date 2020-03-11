@@ -1,5 +1,5 @@
 {
-  "name": "react-form-hooks",
+  "name": "@ricknijhuis/react-form-hooks",
   "version": "1.0.0",
   "description": "An simple, styleless, performant form package using the power of react hooks",
   "main": "dist/index.js",
