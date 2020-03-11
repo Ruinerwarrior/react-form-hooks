@@ -18,7 +18,6 @@ export interface IFormContext {
     groupName?: string,
     defaultValue?: any
   ) => void;
-  unRegister: (name: string) => void;
   getValue: (name: string) => any;
   getIsDirty: (name: string) => boolean;
   getIsTouched: (name: string) => boolean;
@@ -26,6 +25,7 @@ export interface IFormContext {
   getFormValues: () => { [key: string]: any };
   getGroupValues: (name: string) => { [key: string]: any };
   onSubmit: () => void;
+  inputs: IInputs;
 }
 
 export interface IInputValue {
@@ -79,11 +79,11 @@ const Form: React.FC<IFormProps> = ({ children, handleSubmit }) => {
     setInputs(currentInputs);
   }
 
-  const unRegister = (name: string) => {
-    let currentInputs = inputs;
-    delete currentInputs[name];
-    setInputs(currentInputs);
-  }
+  // const unRegister = (name: string) => {
+  //   let currentInputs = inputs;
+  //   delete currentInputs[name];
+  //   setInputs(currentInputs);
+  // }
 
   const getValue = (name: string) => inputs[name] ? inputs[name].getValue() : null;
   const getIsDirty = (name: string) => inputs[name] ? inputs[name].getIsDirty() : false;
@@ -93,7 +93,6 @@ const Form: React.FC<IFormProps> = ({ children, handleSubmit }) => {
   const getFormValues = () => {
     let values: { [key: string]: any } = {};
     for (let [key, value] of Object.entries(inputs)) {
-      console.log(key, value.getValue());
       values[key] = value.getValue();
     }
     return values;
@@ -117,8 +116,8 @@ const Form: React.FC<IFormProps> = ({ children, handleSubmit }) => {
   return (
     <FormContext.Provider
       value={{
+        inputs,
         register,
-        unRegister,
         getValue,
         getIsDirty,
         getIsTouched,

@@ -16,7 +16,7 @@ function useFormField(
   handleBlur?: (e: React.FocusEvent<HTMLInputElement>) => void,
   handleFocus?: (e: React.FocusEvent<HTMLInputElement>) => void
 ) {
-  const { register, unRegister } = useContext(FormContext);
+  const { register } = useContext(FormContext);
   const [value, setValue] = useState<string | null>(defaultValue || null);
   const [isDirty, setIsDirty] = useState(false);
   const [isTouched, setIsTouched] = useState(false);
@@ -52,6 +52,7 @@ function useFormField(
   const onFocus = handleFocus || handleFieldFocus;
 
   useEffect(() => {
+    console.log("test");
     // getters
     const getValue = () => value;
     const getIsDirty = () => isDirty;
@@ -75,10 +76,6 @@ function useFormField(
       groupName,
       defaultValue
     );
-
-    return () => {
-      unRegister(name);
-    }
   },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [

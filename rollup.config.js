@@ -14,7 +14,7 @@ export default {
     }
   ],
   plugins: [
-    typescript({ objectHashIgnoreUnknownHack: false })
+    typescript({ objectHashIgnoreUnknownHack: true })
   ],
   external: ['react', 'react-dom']
 }
