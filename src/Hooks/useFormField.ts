@@ -72,7 +72,6 @@ function useFormField(
       getValue,
       reset,
       empty,
-      setValue,
       groupName,
       defaultValue
     );

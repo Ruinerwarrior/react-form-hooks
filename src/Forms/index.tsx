@@ -14,7 +14,6 @@ export interface IFormContext {
     getValue: () => any,
     reset: () => void,
     empty: () => void,
-    setValue: (value: string) => void,
     groupName?: string,
     defaultValue?: any
   ) => void;
@@ -40,7 +39,6 @@ export interface IInputs {
     getValue: () => any;
     reset: () => void;
     empty: () => void;
-    setValue: (value: string) => void;
     groupName?: string;
     defaultValue?: string;
   };
@@ -60,7 +58,6 @@ const Form: React.FC<IFormProps> = ({ children, handleSubmit }) => {
     getValue: () => any,
     reset: () => void,
     empty: () => void,
-    setValue: (value: string) => void,
     groupName?: string,
     defaultValue?: any,
   ) => {
@@ -73,8 +70,7 @@ const Form: React.FC<IFormProps> = ({ children, handleSubmit }) => {
       groupName,
       defaultValue,
       reset,
-      empty,
-      setValue
+      empty
     };
     setInputs(currentInputs);
   }
