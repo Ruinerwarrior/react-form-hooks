@@ -1,6 +1,6 @@
 {
   "name": "@ricknijhuis/react-form-hooks",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An simple, styleless, performant form package using the power of react hooks",
   "main": "dist/index.js",
   "scripts": {
@@ -33,5 +33,7 @@
     "react": "^16.8.0",
     "react-dom": "^16.8.0"
   },
-  "files": ["dist"]
+  "files": [
+    "dist"
+  ]
 }
