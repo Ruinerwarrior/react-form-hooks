@@ -93,6 +93,7 @@ const Form: React.FC<IFormProps> = ({ children, handleSubmit }) => {
   const getFormValues = () => {
     let values: { [key: string]: any } = {};
     for (let [key, value] of Object.entries(inputs)) {
+      console.log(key, value.getValue());
       values[key] = value.getValue();
     }
     return values;
