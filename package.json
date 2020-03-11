@@ -1,10 +1,12 @@
 {
   "name": "react-form-hooks",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "An simple, styleless, performant form package using the power of react hooks",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c",
+    "start": "rollup -c -w"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,21 @@
   "bugs": {
     "url": "https://github.com/Ruinerwarrior/react-form-hooks/issues"
   },
-  "homepage": "https://github.com/Ruinerwarrior/react-form-hooks#readme"
+  "homepage": "https://github.com/Ruinerwarrior/react-form-hooks#readme",
+  "devDependencies": {
+    "@types/react": "^16.9.23",
+    "@types/react-dom": "^16.9.5",
+    "babel-core": "^6.26.3",
+    "babel-runtime": "^6.26.0",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "rollup": "^2.0.3",
+    "rollup-plugin-typescript2": "^0.26.0",
+    "typescript": "^3.8.3"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
+  },
+  "files": ["dist"]
 }
