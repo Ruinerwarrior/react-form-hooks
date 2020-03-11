@@ -1,7 +1,7 @@
 import useFormField from "./Hooks/useField";
 import useField from "./Hooks/useFormField";
-import Form from "./Forms";
+import Form, { FormContext } from "./Forms";
 
-export { useFormField, useField };
+export { useFormField, useField, FormContext };
 
 export default Form;
