@@ -61,6 +61,7 @@ function useFormField(
     // input actions
     const reset = () => { setValue(defaultValue || null) };
     const empty = () => { setValue(null) };
+    const setValue = (value: string | null) => { setValue(value) };
 
     register(
       name,
@@ -70,6 +71,7 @@ function useFormField(
       getValue,
       reset,
       empty,
+      setValue,
       groupName,
       defaultValue
     );

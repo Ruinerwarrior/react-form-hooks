@@ -14,10 +14,11 @@ export interface IFormContext {
     getValue: () => any,
     reset: () => void,
     empty: () => void,
+    setValue: (value: string) => void,
     groupName?: string,
     defaultValue?: any
   ) => void;
-  unRegister:(name: string) => void;
+  unRegister: (name: string) => void;
   getValue: (name: string) => any;
   getIsDirty: (name: string) => boolean;
   getIsTouched: (name: string) => boolean;
@@ -33,14 +34,15 @@ export interface IInputValue {
 
 export interface IInputs {
   [key: string]: {
-    getIsValid: () => boolean,
+    getIsValid: () => boolean;
     getIsTouched: () => boolean;
     getIsDirty: () => boolean;
     getValue: () => any;
     reset: () => void;
     empty: () => void;
-    groupName?: string,
-    defaultValue?: string
+    setValue: (value: string) => void;
+    groupName?: string;
+    defaultValue?: string;
   };
 }
 
@@ -58,6 +60,7 @@ const Form: React.FC<IFormProps> = ({ children, handleSubmit }) => {
     getValue: () => any,
     reset: () => void,
     empty: () => void,
+    setValue: (value: string) => void,
     groupName?: string,
     defaultValue?: any,
   ) => {
@@ -70,7 +73,8 @@ const Form: React.FC<IFormProps> = ({ children, handleSubmit }) => {
       groupName,
       defaultValue,
       reset,
-      empty
+      empty,
+      setValue
     };
     setInputs(currentInputs);
   }
@@ -81,7 +85,7 @@ const Form: React.FC<IFormProps> = ({ children, handleSubmit }) => {
     setInputs(currentInputs);
   }
 
-  const getValue = (name: string) => { console.log(inputs[name] ? inputs[name].getValue() : null); return inputs[name] ? inputs[name].getValue() : null };
+  const getValue = (name: string) => inputs[name] ? inputs[name].getValue() : null;
   const getIsDirty = (name: string) => inputs[name] ? inputs[name].getIsDirty() : false;
   const getIsTouched = (name: string) => inputs[name] ? inputs[name].getIsTouched() : false;
   const getIsValid = (name: string) => inputs[name] ? inputs[name].getIsValid() : false;
